@@ -1,0 +1,253 @@
+@font-face {
+	font-family: Beyond-the-mountains;
+	src:url(../assets/fonts/beyond_the_mountains.otf);
+}
+
+@font-face {
+   font-family: Brandon-reg;
+   src: url(../assets/fonts/Brandon_reg.otf);
+}
+
+@font-face {
+   font-family: Brandon-med;
+   src: url(../assets/fonts/Brandon_med.otf);
+}
+
+@font-face {
+	font-family: Brandon-light;
+	src: url(../assets/fonts/Brandon_light.otf);
+}
+
+@font-face {
+	font-family: Roboto-Regular;
+	src: url(../assets/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+	font-family: Brandon_bld;
+	src: url(../assets/fonts/Brandon_bld.otf);
+}
+
+.row {
+	margin-right: 0;
+}
+
+body {
+	background-image: url('../assets/img/background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    background-position: right;
+}
+
+.left-container {
+	display: grid;
+    grid-template-rows: 100vh;
+    align-items: center;
+	padding-right: 0;
+}
+
+.logo {
+	display: block;
+	margin: 0 auto;
+}
+
+.order-online {
+	font-family: Brandon-light;
+	font-size: 1.30rem;
+	font-weight: bold;
+}
+
+.form-container {
+	background-color: #e1cb3a;
+	border-radius: 10px;
+	margin: 0 auto;
+	width: 21rem;
+	padding: 30px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.tag-line {
+	font-family: Roboto-Regular;
+	font-size: 1rem;
+}
+
+.label {
+	font-family: Brandon-light;
+	font-size: 1.04rem;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+.remember-me {
+	font-family: Brandon-light;
+	font-size: 0.91rem;
+	font-weight: bold;
+}
+
+.login-button {
+	background-color: #000;
+	color: #d2d2d2;
+	font-family: Brandon-reg;
+	font-size: 0.91rem;
+	letter-spacing: 2px;
+	margin:0 auto;
+	margin-top: 20px;
+	width: 80%;
+	border-radius: 0;
+}
+
+.forgot-msg-container {
+	color: #FF0000;
+	display: block;
+	font-family: Brandon-reg;
+	font-size: 0.91rem;
+	margin:0 auto;
+	margin-top: 30px;
+	text-align: center;
+	width: 100%;
+}
+
+.forgot-msg-container:hover, .login-msg-container:hover {
+	color: #FF0000;
+}
+
+.right-container {
+	display: none;
+}
+
+.right-top {
+	margin-top: 5vh;
+	text-align: center;
+}
+
+.right-top span {
+	display: block;
+}
+
+.beyond-the-mountains-font {
+	font-family: 'Beyond-the-mountains';
+	font-size: 4.39rem;
+}
+
+.brand-moto {
+	background-color: #fff;
+	border-radius: 50%;
+	font-family: Brandon-med;
+	font-size: 1.875rem;
+	line-height: 2.2rem;
+	opacity: 0.8;
+	padding: 45px;
+	text-align: center;
+	width: 250px;
+	height: 250px;
+}
+
+.brand-moto span {
+	display: block;
+}
+
+.red {
+	color: red;
+}
+
+/* Forgot password Style */
+.heading {
+	font-family: Brandon-reg;
+	font-size: 1.125rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.forgot-username {
+	font-family: Brandon_bld;
+	font-size: 0.75rem;
+}
+
+.help-msg {
+	font-family: Brandon-reg;
+	font-size: 0.75rem;
+}
+
+.forgot-username-msg span {
+	display: block;
+}
+
+.forgot-username-msg {
+	text-align: center;
+	font-size: 0.9rem;
+	line-height: 0.9rem;
+	padding-top: 30px;
+}
+
+.login-msg-container {
+	color: #FF0000;
+	display: block;
+	font-family: Brandon-reg;
+	font-size: 0.91rem;
+	text-align: center;
+	margin-top: 14px;
+}
+
+.forgot-password-button {
+	background-color: #000;
+	color: #d2d2d2;
+	font-family: Brandon-reg;
+	font-size: 0.79rem;
+	letter-spacing: 2px;
+	margin:0 auto;
+	margin-top: 25px;
+	width: 80%;
+	border-radius: 0;
+}
+/* End */
+
+footer {
+	background-color: #F0F1EF;
+	font-family: Brandon-reg;
+	font-size: 0.78rem;
+	padding: 10px;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-gap: 10px;
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+}
+
+.copy-rights {
+	justify-self: end;
+}
+
+@media only screen and (max-height: 700px) and (orientation: landscape) {
+	.left-container {
+		grid-template-rows: auto;
+	    align-items: unset;
+	}
+}
+
+@media only screen and (max-height: 576px) and (orientation: landscape) {
+	footer {
+		margin-top: 10px;
+		bottom: unset;
+	}
+}
+
+@media only screen and (max-height: 700px) and (orientation: portrait) {
+	footer {
+		bottom: unset;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.right-container {
+		display: grid;
+    	grid-template-rows: max-content auto;
+	}
+
+	.brand-moto-container {
+		display: grid;
+		align-items: center;
+    	justify-items: center;
+	}
+}

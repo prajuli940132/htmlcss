@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" href="../assets/img/logo.png" />
+    <!-- Css links  -->
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="../assets/cal/css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+    <script src="../assets/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../js/date.js"></script>
+
+    <title>Store List</title>
+</head>
+<body>
+  <!--- Nav for Logo and link for cart, settings etc -->
+  <div class="col d-flex justify-content-center">
+      <img class="logo" src="../assets/img/top-logo.png"/>
+      <div class="align-self-center">
+      <ul class="nav justify-content-start">
+        <li class="nav-item nav-list badge-container">
+            <a class="nav-link" href="shopping-cart.html" style="padding-right:0px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            </a>
+            <span class="badge badge-yellow">3</span>
+          </li>
+        <li class="nav-item nav-list">
+          <a class="nav-link" href="help.html" style="padding-right:0px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+          </a>
+        </li>
+        <li class="nav-item nav-list">
+          <a class="nav-link" href="settings.html" style="padding-right:0px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7.14 1.13zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+          </a>
+        </li>
+        <li class="nav-item nav-list">
+          <a class="nav-link" href="#" style="padding-right:0px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z" fill="red"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <!-- end of it -->
+
+  <!-- navbar starts from here -->
+  <nav class="navbar navbar-expand-lg navbar-light mt-3 mb-6">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav nav-define">
+          <li class="nav-item active">
+            <a class="nav-link" href="dashboard.html">DASHBOARD <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Store_list.html">STORE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order_history.html">ORDER HISTORY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reports.html">REPORTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">SAFTEY ALERTS <img class="redirect" height=16 width=16 src="../assets/img/redirect.png" /></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MARKET REPORT <img class="redirect" height=16 width=16 src="../assets/img/redirect.png" /></a>
+          </li>
+        </ul>
+      </div>
+  	</nav>
+
+    <div class="store-container">
+    <!-- Icon and Date panel start -->
+    <div class="row icon-panel">
+        <div class="col-4 col-md-3 icon">
+            <!-- List svg -->
+            <a href="#">
+                <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 24 24" height="25px" id="Layer_1" version="1.1" viewBox="0 0 25 25" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M5.9,1H1.1C0.5,1,0,1.5,0,2.1v4.8C0,7.5,0.5,8,1.1,8h4.8C6.5,8,7,7.5,7,6.9V2.1C7,1.5,6.5,1,5.9,1z M5,6H2V3h3V6z"/><path d="M5.9,9H1.1C0.5,9,0,9.5,0,10.1v4.8C0,15.5,0.5,16,1.1,16h4.8C6.5,16,7,15.5,7,14.9v-4.8C7,9.5,6.5,9,5.9,9z M5,14H2v-3h3   V14z"/><path d="M5.9,17H1.1C0.5,17,0,17.5,0,18.1v4.8C0,23.5,0.5,24,1.1,24h4.8C6.5,24,7,23.5,7,22.9v-4.8C7,17.5,6.5,17,5.9,17z M5,22H2   v-3h3V22z"/><path d="M9,4h14c0.6,0,1-0.4,1-1s-0.4-1-1-1H9C8.4,2,8,2.4,8,3S8.4,4,9,4z"/><path d="M23,5H9C8.4,5,8,5.4,8,6s0.4,1,1,1h14c0.6,0,1-0.4,1-1S23.6,5,23,5z"/><path d="M23,10H9c-0.6,0-1,0.4-1,1s0.4,1,1,1h14c0.6,0,1-0.4,1-1S23.6,10,23,10z"/><path d="M23,13H9c-0.6,0-1,0.4-1,1s0.4,1,1,1h14c0.6,0,1-0.4,1-1S23.6,13,23,13z"/><path d="M23,18H9c-0.6,0-1,0.4-1,1s0.4,1,1,1h14c0.6,0,1-0.4,1-1S23.6,18,23,18z"/><path d="M23,21H9c-0.6,0-1,0.4-1,1s0.4,1,1,1h14c0.6,0,1-0.4,1-1S23.6,21,23,21z"/></g></svg>
+            </a>
+
+            <!-- Grid svg -->
+            <a href="Store_thumb.html" class="m-2">
+                <svg height="25px" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+
+                    .st0{display:inline;fill:none;stroke:#000000;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                    .st1{display:none;}
+
+                </style><g class="st1" id="layer"><rect class="st0" height="25" width="25" x="51" y="51"></rect><rect class="st0" height="25" width="25" x="273" y="51"></rect><rect class="st0" height="25" width="25" x="51" y="273"></rect><rect class="st0" height="25" width="25" x="273" y="273"></rect></g><g id="layer_copy"><g><path fill="grey" d="M239,247H51c-4.418,0-8-3.582-8-8V51c0-4.418,3.582-8,8-8h188c4.418,0,8,3.582,8,8v188C247,243.418,243.418,247,239,247z     M59,231h172V59H59V231z"></path></g><g><path fill="grey" d="M461,247H273c-4.418,0-8-3.582-8-8V51c0-4.418,3.582-8,8-8h188c4.418,0,8,3.582,8,8v188C469,243.418,465.418,247,461,247z     M281,231h172V59H281V231z"></path></g><g><path fill="grey" d="M239,469H51c-4.418,0-8-3.582-8-8V273c0-4.418,3.582-8,8-8h188c4.418,0,8,3.582,8,8v188C247,465.418,243.418,469,239,469z     M59,453h172V281H59V453z"></path></g><g><path fill="grey" d="M461,469H273c-4.418,0-8-3.582-8-8V273c0-4.418,3.582-8,8-8h188c4.418,0,8,3.582,8,8v188C469,465.418,465.418,469,461,469    z M281,453h172V281H281V453z"></path></g></g></svg>
+            </a>
+        </div>
+
+        <div class="col-8 col-md-9 date-icon">
+            <div class="date">
+                <h3>Delivery Date</h3>
+                <a href="#" data-toggle="modal" data-target="#open-modal">
+                    <span>Tomorrow, Nov 18th, 2018 <svg class="date-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Icon and Date panel end -->
+
+    <!-- Sidebar and main content start -->
+    <div class="row content-area">
+        <div class="col-12 col-md-3 collapse-sidebar">
+            <!-- code for toggle btn -->
+        <div>
+            <div class="sidebar-heading col-12"><a href="orderGuide.html">Order Guide</a></div>
+            <div class="sidebar-heading col-12 mb-3"><a href="Store_specialItem.html">Order Special Item</a></div>
+            <button class="btn btn-link d-md-none p-0 ml-3" type="button" data-toggle="collapse"
+              data-target="#collapse-docs-nav" aria-controls="collapse-docs-nav" aria-expanded="true" aria-label="Toggle docs navigation">
+              <!-- svg icon -->
+              <svg class="frequently-arrow" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+            </button>
+        </div>
+
+        <nav class="collapse-links collapse" id="collapse-docs-nav">
+            <ul class="sidebar mr-auto">
+                <h6>Sort By:</h6>
+                    <hr>
+                <h6 class="frequently">
+                    Frequently Ordered
+                    <svg class="frequently-arrow" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+                </h6>
+                    <br>
+                    <h6>Filter By Type:</h6>
+                    <hr>
+                <ul>
+                    <a><li class="ml-2 mt-3" style="color: #de8800">
+                        <input class="vertical" type="checkbox" id="locally-grown">
+                        <label for="locally-grown">Locally Grown</label></li>
+                    </a>
+                    <a><li class="ml-2" style="color: #118d00">
+                        <input class="vertical" type="checkbox" id="organic">
+                        <label for="organic">Organic</label></li>
+                    </a>
+                    <a><li class="ml-2 mb-3">
+                        <input class="vertical" type="checkbox" id="master">
+                        <label for="master">Master</label></li>
+                    </a>
+                </ul>
+                <h6>Filter By Category:</h6>
+                    <hr>
+                <ul>
+                    <a><li class="ml-2 mt-3">
+                        <input class="vertical" type="checkbox" id="diary">
+                        <label for="diary">Diary</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="green-veggies">
+                        <label for="green-veggies">Green Vegetables</label></li>
+                    </a>
+                    <a><li class="ml-2 pl-4">
+                        <input class="vertical" type="checkbox" id="salads">
+                        <label for="salads">Salads</label></li>
+                    </a>
+                    <a><li class="ml-2 pl-4">
+                        <input class="vertical" type="checkbox" id="greens">
+                        <label for="greens">Greens</label></li>
+                    </a>
+                    <a><li class="ml-2 pl-4">
+                        <input class="vertical" type="checkbox" id="lettuces">
+                        <label for="lettuces">Lettuces</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="fruits">
+                        <label for="fruits">Fruits</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="herbs">
+                        <label for="herbs">Herbs</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="berries">
+                        <label for="berries">Berries</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="roots">
+                        <label for="roots">Roots</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="flowers">
+                        <label for="flowers">Flowers</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="leaves">
+                        <label for="leaves">Leaves</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="stems">
+                        <label for="stems">Stems</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="bulbs">
+                        <label for="bulbs">Bulbs</label></li>
+                    </a>
+                    <a><li class="ml-2">
+                        <input class="vertical" type="checkbox" id="seeds">
+                        <label for="seeds">Seeds</label></li>
+                    </a>
+                </ul>
+            </ul>
+        </nav>
+
+        </div>
+            <!-- sidebar ends -->
+
+        <div class="col-12 col-md-9 list-content">
+
+
+                <div class="order-guide">
+                    <p class="p-2" style="margin-bottom:5px;"><strong>Wanna make ordering easy? Try our <a href="#">Order Guide</a></strong></span>.</p>
+                </div>
+                <div class="row">
+                  <div class="col-12 p-0">
+                    <input type="text" class="form-control" placeholder="Search" id="Search"/>
+                  </div>
+                </div>
+                <!-- row for tomato -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/tomato.png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header">Tomato</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">5</span>
+                            <span class="bold-text"></span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for onion yellow -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/onion(yellow).png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header">Onion (Yellow)</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">4</span>
+                            <span class="bold-text"></span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for Onion white -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/onion(white).png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header" style="color:#de8800">Onion (White)</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">6</span>
+                            <span class="bold-text">25</span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for spinich -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/Spinach.png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header" style="color: #118d00">Spinach</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">5</span>
+                            <span class="bold-text"></span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for ginger -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/ginger.png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header">Ginger</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">5</span>
+                            <span class="bold-text">10</span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for garlic -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/garlic.png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header" style="color:#de8800">Garlic</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">2</span>
+                            <span class="bold-text"></span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for Beats -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/beets.png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header" style="color: #118d00">Beats</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">3</span>
+                            <span class="bold-text"></span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for Pepper red -->
+                <div class="row list-row">
+                    <div class="col-6 col-sm-4 col-lg-3 list-img">
+                        <img class="img-responsive" src="../assets/img/pepper.png">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-2 list-name align-self-center">
+                        <h3 class="header">Pepper (Red)</h3>
+                        <dt class="item-label">item code</dt>
+                        <dt class="dis">#3893485</dt>
+                    </div>
+                    <div class="col-sm-4 d-lg-none"></div>
+                    <div class="col-4 col-sm-3 col-lg-1 drag-down align-self-center">
+                        <dt class="item-label">uom</dt>
+                        <dt class="dis">2</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">pack size</dt>
+                        <dt class="dis">10</dt>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 drag-down align-self-center">
+                        <dt class="item-label">price/unit</dt>
+                        <dt class="dis">$8.99</dt>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-2 drag-down quantity-btn align-self-center">
+                        <div class="quantity-by">
+                            <span class="bold-text quantity-by-top">2</span>
+                            <span class="bold-text">2</span>
+                        </div>
+                        <div class="increment-btn">
+                            <span>
+                                <tr>
+                                    <th>
+                                        <div class="square">-</div>
+                                    </th>
+                                    <input class="input-square" type="text" value="0">
+                                    <th>
+                                        <div class="square">+</div>
+                                    </th>
+                                </tr>
+                            </span>
+                            <span class="blue-text bold-text mt-1">$89.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- row for page selection -->
+                <div class="row selection-btn">
+                    <div class="col-12 btn-pagination">
+                        <svg style="width:25px;height:25px; vertical-align: middle;" viewBox="0 0 25 25">
+                            <path fill="#000000" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                        </svg>
+                            <select id='select'></select>
+                        <svg style="width:25px;height:25px; vertical-align: middle;" viewBox="0 0 24 24">
+                            <path fill="#000000" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                        </svg>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- Sidebar and main content start -->
+    </div>
+
+  <!-- Footer -->
+    <div class="footer-container">
+        <footer>
+            <span>Powered by </span><img src="../assets/img/footer-logo.png" alt="">
+        </footer>
+    </div>
+  <!-- End of Footer -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="open-modal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+            <!-- Modal Header -->
+            <!-- Modal body -->
+                <div class="modal-body">
+                    <a href="#modal-close" title="Close" class="close" data-dismiss="modal"><img src="../assets/img/icons8-cancel-25.svg"></a>
+                    <div class="row">
+                        <div class="col-12 heading-container">
+                            <p class="heading">ENTER YOUR ON HAND INVENTORY</p>
+                        </div>
+                    </div>
+                    <div class="row cal-container">
+                        <div class="my-0 mx-auto" id="datepicker"></div>
+                    </div>
+                    <div class="row btn-container">
+                        <div class="col-12 col-md-6" >
+                            <button class="btn btn-sm button delivery-date-button left-button">SET DELIVERY DATE</button>
+                        </div>
+                        <div class="col-12 col-md-6" >
+                            <button class="btn btn-sm button delivery-date-button right-button">ENTER EXISTING INVENTORY</button>
+                        </div>
+                    </div>
+                </div>
+            <!-- Modal footer -->
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script src="../assets/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/pagination.js"></script>
+    <script type="text/javascript">
+      $( function() {
+        $( "#datepicker" ).datepicker({
+            dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+        });
+        $('ul.navbar-nav.nav-define li a').each(function(){
+         var $href = $(this).attr('href');
+         if ( ($href == "Store_list.html") ) {
+           $(this).addClass('on');
+         } else {
+             $(this).removeClass('');
+         }
+     });
+      });
+    </script>
+</body>
+</html>
