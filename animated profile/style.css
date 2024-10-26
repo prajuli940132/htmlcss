@@ -1,0 +1,82 @@
+*margin{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+section{
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    background-color: #383d49;
+}
+.card{
+    width: 240px;
+    height: 320px;
+    position: relative;
+    isolation: isolate;
+}
+.card-image{
+    width: 100%;
+    height: 100%;
+    transition: all 0.35s linear;
+    filter:grayscale(100%);
+}
+.card:hover .card-image{
+    filter: grayscale(0%);
+    transform: translateY(-4.25rem);
+    /* overflow: hidden; */
+
+}
+.card-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1.5rem #222a22;
+}
+.card-info{
+    background-color: var(--card-color,#ededed) ;
+    border-radius: 1rem;
+    padding: 10rem 1rem 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.35s linear;
+    z-index: -1;
+}
+.card:hover .card-info{
+    transform: translateY(4.25rem);
+    left: -1rem;
+    right: -1rem;
+}
+.card-info .name{
+    font-size: 1.25rem;
+    line-height: 1.725rem;
+    text-align: center;
+    font-weight: 600;
+}
+.card-info .job{
+    font-size: 0.85rem;
+    line-height: 1.275rem;
+    text-align: center;
+    font-weight: 500;
+}
+.card-info .social-link{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:0.75rem;
+    margin-top: 0.5rem;
+}
+.card-info .social-link li{
+    height: 3rem;
+    list-style: none;
+    border-radius: 0.5rem;
+    display: grid;
+    place-content: center;
+    font-size: 1.75rem;
+    transition: all 0.35s linear;
+    cursor: pointer;
+}
+.card-info .social-link li:hover{
+    background-color: #31f031;
+}
